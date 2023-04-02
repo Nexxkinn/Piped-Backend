@@ -1,7 +1,6 @@
 package me.kavin.piped;
 
 import io.activej.inject.Injector;
-import io.sentry.Sentry;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import me.kavin.piped.consts.Constants;
@@ -35,12 +34,12 @@ public class Main {
         YoutubeStreamExtractor.forceFetchAndroidClient(true);
         YoutubeStreamExtractor.forceFetchIosClient(true);
 
-        Sentry.init(options -> {
+        /* Sentry.init(options -> {
             options.setDsn(Constants.SENTRY_DSN);
             options.setRelease(Constants.VERSION);
             options.addIgnoredExceptionForType(ErrorResponse.class);
             options.setTracesSampleRate(0.1);
-        });
+        }); */
 
         Injector.useSpecializer();
 
